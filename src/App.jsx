@@ -1,14 +1,17 @@
 import { useState, useEffect } from 'react'
-import style from './App.css'
+
 import alanBtn from '@alan-ai/alan-sdk-web'
 
 
 // Components
 import NewsCards from './Components/NewsCards/NewsCards'
 
+// Styles
+import useStyles from './Styles.js'
 
 function App() {
 
+  const classes = useStyles()
   const [ newsArticles, setNewsArticles ] = useState([])
 
   useEffect(() => {
@@ -26,8 +29,10 @@ function App() {
   
   return (
     <div >
-      <h1>Alan AI News Appliclation</h1>
-      <NewsCards articles={newsArticles} />
+      <div className={classes.logoContainer}> 
+        <img src="https://voicebot.ai/wp-content/uploads/2019/10/alan.jpg" className={classes.alanLogo} alt="logo" />
+      </div>
+      <NewsCards articles={newsArticles} className={classes.alanLogo} />
     </div>
   )
 }

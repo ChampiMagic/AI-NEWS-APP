@@ -3,7 +3,7 @@ import style from './App.css'
 import alanBtn from '@alan-ai/alan-sdk-web'
 
 
-function App() { 
+function App() {
 
   const [ newsArticles, setNewsArticles ] = useState([])
 

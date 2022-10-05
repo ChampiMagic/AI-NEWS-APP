@@ -4,12 +4,15 @@ import { Card, CardActions, CardActionArea, CardContent, CardMedia, Button, Typo
 // Styles
 import useStyles from './Styles.js'
 
-const NewCard = ({ article: { description, publishedAt, source, title, url, urlToImage}, i }) => {
+// logic
+import classNames from "classnames";
+
+const NewCard = ({ article: { description, publishedAt, source, title, url, urlToImage}, i, activeArticle }) => {
 
     const classes = useStyles();
     
     return (
-        <Card className={classes.card}>
+        <Card className={classNames(classes.card, activeArticle === i? classes.activeCard : null)}>
             <CardActionArea href={url} target="_blank">
                 <CardMedia className={classes.media} image={ urlToImage ||  "https://images.unsplash.com/photo-1585829365295-ab7cd400c167?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cGVyaW9kaXN0YXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"}/>
                 <div className={classes.details}>
